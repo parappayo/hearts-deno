@@ -1,17 +1,18 @@
 import { useEffect, useState } from "preact/hooks";
-import { TableState } from "../common/TableState.ts";
+import { TableState, TableStateResponse } from "../common/TableState.ts";
 
 export default function HeartsTable() {
 
-    const [tableState, setTableState] = useState<TableState>(new TableState("uninitialized"));
+    const [tableState, setTableState] = useState<TableState>(new TableState(null));
 
     const getTableState = async () => {
-        const resp = await fetch('http://localhost:8080/table-state');
-        console.log("fetched", resp);
-
-        const initialState = new TableState("Welcome to Hearts!");
-        console.log("got here", initialState)
-        setTableState(initialState);
+        const resp = await fetch('http://localhost:8080/game-state');
+        if (!resp.ok) {
+            console.error("Failed to fetch table state:", resp.statusText);
+            return;
+        }
+        const data: TableStateResponse = await resp.json();
+        setTableState(new TableState(data));
     };
 
     useEffect(() => {
