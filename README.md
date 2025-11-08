@@ -1,3 +1,15 @@
 # hearts-deno
 
 Lightweight front-end to accompany the parappayo/hearts-go backend.
+
+For this project I'm giving [Deno Fresh](https://fresh.deno.dev) a whirl.
+
+## Usage
+
+For local dev:
+
+```
+deno task dev
+```
+
+This project is only the frontend. In order for it to work, you need to run parappayo/hearts-go as a backend.
