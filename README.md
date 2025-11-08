@@ -1,2 +1,3 @@
 # hearts-deno
-Front-end to accompany the parappayo/hearts-go back-end
+
+Lightweight front-end to accompany the parappayo/hearts-go backend.
