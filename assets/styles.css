@@ -8,3 +8,14 @@
     rgb(254, 249, 195)
   );
 }
+
+.card {
+  width: 120px;
+  height: 168px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+}

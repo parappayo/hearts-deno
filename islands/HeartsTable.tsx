@@ -1,5 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { TableState, TableStateResponse } from "../common/TableState.ts";
+import { Card } from "../components/Card.tsx";
 
 export default function HeartsTable() {
 
@@ -20,6 +21,9 @@ export default function HeartsTable() {
     }, []);
 
     return (
-        <div class="flex gap-8 py-6">{tableState.test}</div>
+        <div class="flex gap-8 py-6">
+            <Card rank="J" suit="♥" />
+            {tableState.test}
+        </div>
     );
 }
