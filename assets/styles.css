@@ -9,7 +9,14 @@
   );
 }
 
+.hand {
+  position: relative;
+  width: 600px;
+  height: 200px;
+}
+
 .card {
+  position: absolute;
   width: 120px;
   height: 168px;
   border: 2px solid #000;

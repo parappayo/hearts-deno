@@ -1,4 +1,4 @@
-import { isFaceCard, Card as CardProps, Rank, Suit } from "../common/PlayingCard.ts";
+import { isFaceCard, Card as CardData, Rank, Suit } from "../common/PlayingCard.ts";
 
 function getCardImagePath(rank: Rank, suit: Suit): string {
     const rankName = rank === 'J' ? 'jack' :
@@ -14,10 +14,17 @@ function getCardImagePath(rank: Rank, suit: Suit): string {
     return `cards/${rankName}_of_${suitName}${altCard}.svg`;
 }
 
-export function Card(props: CardProps) {
-    const alt = `${props.rank} of ${props.suit}`;
+type CardProps = CardData & {
+    zIndex: number;
+    top: string;
+    left: string;
+};
 
+export function Card(props: CardProps) {
+    const { rank, suit, zIndex, top, left } = props;
+
+    const alt = `${rank} of ${suit}`;
     return (
-        <img class="card" src={getCardImagePath(props.rank, props.suit)} alt={alt} />
+        <img class="card" src={getCardImagePath(rank, suit)} alt={alt} style={{ zIndex, top, left }} />
     )
 }
