@@ -1,9 +1,4 @@
-import { isFaceCard, Rank, Suit } from "../common/PlayingCard.ts";
-
-export interface CardProps {
-    rank: Rank;
-    suit: Suit;
-}
+import { isFaceCard, Card as CardProps, Rank, Suit } from "../common/PlayingCard.ts";
 
 function getCardImagePath(rank: Rank, suit: Suit): string {
     const rankName = rank === 'J' ? 'jack' :
@@ -15,7 +10,7 @@ function getCardImagePath(rank: Rank, suit: Suit): string {
                      suit === '♦' ? 'diamonds' :
                      suit === '♣' ? 'clubs' :
                      'spades';
-    const altCard = isFaceCard(rank) ? '2' : '';
+    const altCard = isFaceCard(rank) && (rank !== 'A' || suit === '♠') ? '2' : '';
     return `cards/${rankName}_of_${suitName}${altCard}.svg`;
 }
 
